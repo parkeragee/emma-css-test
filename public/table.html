@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>Emma CSS</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Small CSS to Hide elements at 1520px size -->
+    <style>
+        @media(max-width:1520px){
+            .left-svg{
+                display:none;
+            }
+        }
+        /* small css for the mobile nav close */
+        #nav-mobile-btn.close span:first-child{
+            transform: rotate(45deg);
+            top: 4px;
+            position: relative;
+            background:#a0aec0;
+        }
+        #nav-mobile-btn.close span:nth-child(2){
+            transform: rotate(-45deg);
+            margin-top: 0px;
+            background:#a0aec0;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-100">
+    <div>
+        <div class="h-screen absolute w-56 bg-gray-900 hidden md:block">
+            <ul class="text-center text-white">
+                <li class="font-semibold py-2 mt-4 mb-2">Contacts</li>
+                <li class="font-semibold py-2 mb-2">Fields</li>
+            </ul>
+        </div>
+        <nav id="nav" class="absolute left-0 w-full text-white bg-gray-900 flex-col h-64 text-sm top-0 mt-20 border-t border-gray-200 pt-5 z-50 hidden flex items-center">
+            <a href="#" class="py-4 font-bold">Contacts</a>
+            <a href="#" class="py-4 font-bold">Fields</a>
+        </nav>
+        <div id="nav-mobile-btn" class="w-6 absolute block md:hidden right-0 top-0 mr-10 mt-8 sm:mt-10 z-50 cursor-pointer select-none">
+            <span class="w-full h-1 mt-2 sm:mt-1 bg-gray-800 rounded-full block transform duration-200"></span>
+            <span class="w-full h-1 mt-1 bg-gray-800 rounded-full block  transform duration-200"></span>
+        </div>
+        <div class="md:pl-56 text-inky">
+            <div class="bg-white border-b-2 border-gray-200 px-8 py-6">
+                <h1 class="text-2xl">Emails</h1>
+            </div>
+
+            <div class="mt-12 px-4 md:px-8">
+                <div class="bg-gray-300 w-full flex flex-row justify-between px-4 py-4 text-black font-semibold">
+                    <div class="w-1/12"></div>
+                    <div class="w-11/12 flex flex-row">
+                        <div class="w-1/2">Email</div>
+                        <div class="w-1/2">Date</div>
+                    </div>
+                </div>
+                <div class="bg-white w-full flex flex-row items-center justify-between px-4 py-2 border-b-2 border-gray-100 hover:shadow">
+                    <div class="w-1/12">
+                        <label class="inline-flex items-center mt-3">
+                            <input type="checkbox" class="form-checkbox border border-gray-800 h-5 w-5 text-inky-700">
+                        </label>
+                    </div>
+                    <div class="w-11/12 flex flex-row items-center">
+                        <div class="w-1/2">p@a.com</div>
+                        <div class="w-1/2">1/21/1999</div>
+                    </div>
+                </div>
+                <div class="bg-white w-full flex flex-row items-center justify-between px-4 py-2 border-b-2 border-gray-100 hover:shadow">
+                    <div class="w-1/12">
+                        <label class="inline-flex items-center mt-3">
+                            <input type="checkbox" class="form-checkbox border border-gray-800 h-5 w-5 text-inky-700">
+                        </label>
+                    </div>
+                    <div class="w-11/12 flex flex-row items-center">
+                        <div class="w-1/2">b@c.com</div>
+                        <div class="w-1/2">9/02/1999</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- a little JS for the mobile nav button -->
+    <script>
+        if( document.getElementById('nav-mobile-btn') ){
+            document.getElementById('nav-mobile-btn').addEventListener('click', function(){
+                if( this.classList.contains('close') ){
+                    document.getElementById('nav').classList.add('hidden');
+                    this.classList.remove('close');
+                } else {
+                    document.getElementById('nav').classList.remove('hidden');
+                    this.classList.add('close');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "tw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npm run build:tw",
+    "build:tw": "tailwind build src/styles.css -o public/styles.css",
+    "postbuild:css": "purgecss -c purgecss.config.js -o public",
+    "prestart": "npm run build:tw"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "purgecss": "^3.0.0",
+    "tailwindcss": "^1.9.0"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.2.0"
+  }
+}
